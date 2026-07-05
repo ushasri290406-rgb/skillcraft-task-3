@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Population Distribution Bar Chart</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Gender Distribution in Population</h2>
+        <canvas id="populationChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('populationChart').getContext('2d');
+
+        const populationChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Male', 'Female', 'Other'],
+                datasets: [{
+                    label: 'Population Count',
+                    data: [520, 450, 30],
+                    backgroundColor: [
+                        '#4e73df',
+                        '#e83e8c',
+                        '#1cc88a'
+                    ],
+                    borderColor: [
+                        '#4e73df',
+                        '#e83e8c',
+                        '#1cc88a'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Population Distribution by Gender'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Population'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Gender'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
